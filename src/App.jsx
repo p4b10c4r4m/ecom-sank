@@ -1,12 +1,10 @@
 import { useState } from 'react'
-import logo from './logo.svg'
 import './App.css'
 import Navbar from './components/Navbar'
 import ItemCount from './components/ItemCount'
 import swal from 'sweetalert2'
-import Item from './components/Item'
-import ItemList from './components/ItemList'
 import ItemListContainer from './components/ItemListContainer'
+import ItemDetailContainer from './components/ItemDetailContainer'
 
 
 function App() {
@@ -17,8 +15,10 @@ function App() {
     <Navbar />
 
     <ItemListContainer />
-     
+  
     <ItemCount />
+
+    <ItemDetailContainer />
 
     </>
   )
