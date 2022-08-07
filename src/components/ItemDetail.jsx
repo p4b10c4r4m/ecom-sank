@@ -1,11 +1,10 @@
-import React from "react";
+import React from 'react';
 
 export const ItemDetail = ({ planta }) => {
   return (
-    <>
-    <P>HOLLLLLA</P>
-    <h1>{planta.name}</h1>
-    </>
+    <div>
+      <h1>{planta.name}</h1>
+    </div>
   );
 }
 

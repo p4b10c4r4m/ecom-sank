@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ItemDetail from './ItemDetail';
 
-const variedad = { id: 101, name: "Jack Herer", price: 550 };
+const variedad = { id: 106, name: "River Haze", price: 550 };
 
 export const ItemDetailContainer = () => {
   const [planta, setPlanta] = useState({});
