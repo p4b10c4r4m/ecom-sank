@@ -16,9 +16,9 @@ function App() {
 
     <ItemListContainer />
   
-    <ItemCount />
-
     <ItemDetailContainer />
+
+    <ItemCount /> 
 
     </>
   )
