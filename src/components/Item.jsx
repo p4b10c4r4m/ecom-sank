@@ -1,10 +1,16 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 
-export default function Item({ producto }) {
+const Item = ({ producto }) => {
   return (
-    <div>
-        {JSON.stringify(producto)}
-
+    <div style={{ paddingLeft: "20px"}}>
+      <Link to={`/item/${producto.id}`}>
+        <h2>{producto.name}</h2>
+      </Link>
+      <p>{producto.price}</p>
+      <p>{producto.idCategoria}</p>
     </div>
   );
-}
+};
+
+export default Item;

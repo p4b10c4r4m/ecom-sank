@@ -1,10 +1,9 @@
-import { useState } from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css'
 import Navbar from './components/Navbar'
-import ItemCount from './components/ItemCount'
-import swal from 'sweetalert2'
 import ItemListContainer from './components/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer'
+import CartWidget from './components/CartWidget';
 
 
 function App() {
@@ -12,14 +11,16 @@ function App() {
 
   return (
     <>
-    <Navbar />
-
-    <ItemListContainer />
-  
-    <ItemDetailContainer />
-
-    <ItemCount /> 
-
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<ItemListContainer />} />
+          <Route path='/categoria/:idCategoria' element={<ItemListContainer />} />
+          <Route path="/item/:idProducto" element={<ItemDetailContainer />} />
+          <Route path="/cart" element={<CartWidget />} />
+          <Route path="*" element={<p>404</p>} />
+        </Routes> 
+      </BrowserRouter>
     </>
   )
 }

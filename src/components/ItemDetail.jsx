@@ -2,8 +2,9 @@ import React from 'react';
 
 export const ItemDetail = ({ planta }) => {
   return (
-    <div>
-      <h1>{planta.name}</h1>
+    <div style={{ paddingLeft: "20px"}}>
+      <h2>{planta.name}</h2>
+      <p>{planta.idCategoria}</p>
     </div>
   );
 }

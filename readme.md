@@ -1,0 +1,1 @@
+Este proyecto es puramente para fines prácticos, no se pretende vender ningun producto que en él se muestran.
