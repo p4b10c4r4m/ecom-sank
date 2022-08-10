@@ -1,41 +1,35 @@
 import React, { useState, useEffect } from "react";
-import Swal from 'sweetalert2';
 
-export default function ItemCount() {
-  const [numero, setNumero] = useState(1);
-
-  function onAdd() {
-    setNumero(
-        Swal.fire(
-        'Agregaste tus productos al carrito',
-      ))
-  } 
+export default function ItemCount({initial, stock , onAdd}) {
+  const [count, setCount] = useState(parseInt(initial));
 
   function handleMenos() {
-    setNumero(numero - 1);
+    setCount(count - 1);
   }
 
   function handleMas() {
-    setNumero(numero + 1);
+    setCount(count + 1);
   }
 
-  const stock = 5;
+  useEffect (() => {
+    setCount(parseInt(initial));
+  }, [initial])
 
   return (
-    <>
+    <div>
       <div style={{ display: "flex" }}>
-        <button disabled={numero === 0} onClick={handleMenos}>
+        <button disabled={count === 0} onClick={handleMenos}>
           -
         </button>
 
-        <h1 style={{ paddingInline: 10 }}>{numero}</h1>
+        <h1 style={{ paddingInline: 10 }}>{count}</h1>
 
-        <button disabled={numero >= stock} onClick={handleMas}>
+        <button disabled={count >= stock} onClick={handleMas}>
           +
         </button>
       </div>
 
-      <button onClick={onAdd}>Agregar al Carrito</button>
-    </>
+      <button disabled={stock <=0} onClick={() => onAdd(count)}>Agregar al Carrito</button>
+    </div>
   );
 }
