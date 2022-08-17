@@ -7,8 +7,8 @@ const Navbar = () => {
     <div style={{ display: "flex"}}>
       <div style={{paddingTop: "7px"}}>
         <button><Link to={"/"}>Home</Link></button>
-        <button><Link to="/categoria/indica">Indica</Link></button>
-        <button><Link to="/categoria/sativa">Sativa</Link></button>
+        <button><Link to="/categoria/Indica">Indica</Link></button>
+        <button><Link to="/categoria/Sativa">Sativa</Link></button>
       </div>
       <Link to="cart">
         <CartWidget />
