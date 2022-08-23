@@ -26,11 +26,3 @@ export const ItemDetail = ({ planta }) => {
 }
 
 export default ItemDetail;
-
-
-/*function onAdd() {
-    setCount(
-        Swal.fire(
-        'Agregaste tus productos al carrito',
-      ))
-  } */

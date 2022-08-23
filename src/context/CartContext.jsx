@@ -17,15 +17,21 @@ export default function CartProvider({children}) {
     }
   }
   
+  const totalPrice = () => {
+    return cart.reduce((prev, act) => prev + act.quantity * act.price, 0);
+  }
+
+  const  totalProducts = () => cart.reduce((acumulador, productoActual) => acumulador + productoActual.quantity, 0);
+  
   const clearCart = () => setCart([]);
   
   const isInCart = (id) => cart.find(producto => producto.id === id) ? true : false;
   
   const removeProduct = (id) => setCart(cart.filter(producto => producto.id !== id));
   
-  
+    
   return (
-    <CartContext.Provider value={{ addProduct, clearCart, isInCart, removeProduct }}>
+    <CartContext.Provider value={{ addProduct, clearCart, isInCart, removeProduct, totalPrice, totalProducts, cart }}>
         {children}
     </CartContext.Provider>
   )

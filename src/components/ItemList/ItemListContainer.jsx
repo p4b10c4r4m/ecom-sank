@@ -9,7 +9,7 @@ export default function ItemListContainer() {
   const {idCategoria} = useParams();
 
   useEffect(() => {
-    let variedades = [
+    const variedades = [
       {id: 101, name: "Trainwreck", price: 550, idCategoria: "Sativa"},
       {id: 102, name: "Hindu Kush", price: 500, idCategoria: "Indica"},
       {id: 103, name: "Northern Lights", price: 550, idCategoria: "Indica"},
@@ -24,7 +24,7 @@ export default function ItemListContainer() {
         } else {
           res(variedades.filter((variedad) => variedad.idCategoria === idCategoria));
         }
-      }, 2000);
+      }, 100);
     });
 
     miPromesa.then((res) => {

@@ -3,8 +3,8 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import ItemListContainer from "./components/ItemList/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetail/ItemDetailContainer";
-import CartWidget from "./components/CartWidget";
 import CartProvider from "./context/CartContext";
+import Cart from "./components/Cart";
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
               element={<ItemListContainer />}
             />
             <Route path="/item/:idProducto" element={<ItemDetailContainer />} />
-            <Route path="/cart" element={<CartWidget />} />
+            <Route path="/cart" element={<Cart />} />
             <Route path="*" element={<p>404</p>} />
           </Routes>
         </BrowserRouter>

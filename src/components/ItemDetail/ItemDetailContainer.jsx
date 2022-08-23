@@ -18,7 +18,7 @@ export const ItemDetailContainer = () => {
     const getPlanta = new Promise(resolve => {
       setTimeout(() => {
         resolve(variedades);
-      }, 2000);
+      }, 100);
     });
 
     getPlanta.then(res => setPlanta(res.find(variedad => variedad.id === parseInt(idProducto))));
