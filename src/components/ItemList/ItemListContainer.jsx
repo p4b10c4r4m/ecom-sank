@@ -1,35 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemList from './ItemList';
+import { getFirestore, collection, getDocs, query, where } from 'firebase/firestore';
 
 
-export default function ItemListContainer() {
+
+export const ItemListContainer = () => {
   
   const [productos, setProductos] = useState([]);
   const {idCategoria} = useParams();
 
   useEffect(() => {
-    const variedades = [
-      {id: 101, name: "Trainwreck", price: 550, idCategoria: "Sativa"},
-      {id: 102, name: "Hindu Kush", price: 500, idCategoria: "Indica"},
-      {id: 103, name: "Northern Lights", price: 550, idCategoria: "Indica"},
-      {id: 104, name: "Michka", price: 500, idCategoria: "Sativa"},
-      {id: 105, name: "Durban Poison", price: 450, idCategoria: "Sativa"},
-    ];
-
-    const miPromesa = new Promise ((res, rej) => {
-      setTimeout (() => {
-        if (!idCategoria) {
-          res(variedades);
-        } else {
-          res(variedades.filter((variedad) => variedad.idCategoria === idCategoria));
-        }
-      }, 100);
-    });
-
-    miPromesa.then((res) => {
-      setProductos(res);
-    });  
+    const querydb = getFirestore();
+    const queryCollection = collection(querydb, 'productos');
+    if (idCategoria) {
+      const queryFilter = query(queryCollection, where('category', '==', idCategoria))
+      getDocs(queryFilter)
+        .then(res => setProductos(res.docs.map(product => ({ id: product.id, ...product.data() }))))
+    } else {
+      getDocs(queryCollection)
+        .then(res => setProductos(res.docs.map(product => ({ id: product.id, ...product.data() }))))
+    }
   }, [idCategoria]);
   
   

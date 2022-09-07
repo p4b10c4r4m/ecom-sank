@@ -7,7 +7,7 @@ export default function ItemCart({ producto }) {
     <div>
         <p>Variedad: {producto.name}</p>
         <p>Cantidad: {producto.quantity}</p>
-        <p>Precio: {producto.price}</p>
+        <p>Precio: ${producto.price}</p>
         <p>Subtotal: ${producto.quantity * producto.price}</p>
         <button onClick={() => removeProduct(producto.id)}>Eliminar</button>
     </div>
